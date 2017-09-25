@@ -6,12 +6,9 @@ if [[ ! "$PROJECT_DIR" || ! -d "$PROJECT_DIR" ]]; then
   exit 1
 fi
 
-# the directory of the script
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 # the temp directory used, within $DIR
 # omit the -p parameter to create a temporal directory in the default location
-WORK_DIR=`mktemp -d -p "$DIR"`
+WORK_DIR=`mktemp -d -p .`
 
 # check if tmp dir was created
 if [[ ! "$WORK_DIR" || ! -d "$WORK_DIR" ]]; then
