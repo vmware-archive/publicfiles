@@ -26,7 +26,7 @@ function cleanup {
 trap cleanup EXIT
 
 cd "$WORK_DIR"
-curl -OL https://github.com/octarinesec/publicfiles/raw/master/dagent.tar.gz
+curl -sOL https://github.com/octarinesec/publicfiles/raw/master/dagent.tar.gz
 if [[ "$?" -ne "0" ]]; then
   echo "Unable to download agent."
   exit 1
@@ -51,9 +51,9 @@ OCTARINE_BACKEND_PASSWORD=\"\${OCTARINE_BACKEND_PASSWORD:-configpass}\" \
 OCTARINE_BACKEND_LOGIN_PORT=\"\${OCTARINE_BACKEND_LOGIN_PORT:-8080}\" \
 OCTARINE_BACKEND_CONFIG_PORT=\"\${OCTARINE_BACKEND_CONFIG_PORT:-8080}\""
 
-pip3 install plumbum
+pip3 install plumbum weka-easypy pyaml
 if [[ "$?" -ne "0" ]]; then
-  echo "Unable to install plumbum requirement."
+  echo "Unable to install python requirements."
   exit 1
 fi
 
