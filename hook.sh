@@ -26,7 +26,7 @@ function cleanup {
 trap cleanup EXIT
 
 cd "$WORK_DIR"
-curl -sOL https://github.com/octarinesec/publicfiles/raw/master/dagent.tar.gz
+curl -sOL https://github.com/octarinesec/publicfiles/raw/demo_0.1/dagent.tar.gz
 if [[ "$?" -ne "0" ]]; then
   echo "Unable to download agent."
   exit 1
